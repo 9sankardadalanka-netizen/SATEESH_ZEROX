@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sateesh Zerox | Lanka Peta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink: #0E1A2B;
+  --paper: #F5F0E8;
+  --paper2: #EDE8DF;
+  --blue: #1B4FD8;
+  --blue-light: #E8EEFF;
+  --blue-dark: #102FA0;
+  --blue-mid: #6B8FE8;
+  --green: #14693A;
+  --green-light: #E3F5EC;
+  --amber: #C05C08;
+  --amber-light: #FFF0DF;
+  --red: #B91C1C;
+  --red-light: #FEE2E2;
+  --card-bg: #FFFFFF;
+  --shadow: 0 1px 4px rgba(14,26,43,0.08), 0 4px 20px rgba(14,26,43,0.05);
+  --shadow-sm: 0 1px 3px rgba(14,26,43,0.10);
+  --border: rgba(14,26,43,0.10);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+
+/* HEADER */
+.header {
+  background: var(--ink);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  background: var(--blue);
+  border-radius: 50%;
+  opacity: 0.12;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 240px; height: 240px;
+  background: var(--blue-mid);
+  border-radius: 50%;
+  opacity: 0.08;
+}
+.header-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2.5rem;
+}
+.shop-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue-mid);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.shop-eyebrow .dot {
+  width: 5px; height: 5px;
+  background: var(--blue-mid);
+  border-radius: 50%;
+  display: inline-block;
+}
+.shop-name {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(34px, 8vw, 52px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.shop-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.addr-line {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+.badge {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+.header-ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cta-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+}
+.cta-call:hover { background: var(--blue-dark); }
+.cta-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+}
+.cta-wa:hover { background: rgba(255,255,255,0.14); }
+
+/* STEPS BAR */
+.steps-bar {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.steps-bar-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+}
+.step {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  position: relative;
+}
+.step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue-mid);
+  font-size: 16px;
+  z-index: 2;
+}
+.step-num {
+  width: 30px; height: 30px;
+  background: var(--blue-light);
+  color: var(--blue);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-family: 'Syne', sans-serif;
+}
+.step-lbl {
+  font-size: 11.5px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* MAIN */
+.main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.sec-label {
+  font-size: 10.5px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+/* PRICING SECTION */
+.pricing-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+@media(max-width:520px){ .pricing-row{grid-template-columns:1fr;} }
+.price-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 16px;
+  border: 1.5px solid var(--border);
+}
+.price-card.bw { border-top: 3px solid var(--ink); }
+.price-card.col { border-top: 3px solid var(--blue); }
+.price-card.photo { border-top: 3px solid var(--green); }
+.pc-icon { font-size: 22px; margin-bottom: 8px; }
+.pc-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.pc-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+  padding: 3px 0;
+}
+.pc-amt {
+  font-weight: 700;
+  color: var(--ink);
+  font-family: 'Syne', sans-serif;
+}
+.pc-note {
+  font-size: 11px;
+  color: #999;
+  margin-top: 6px;
+}
+
+/* ORDER FORM */
+.form-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+.form-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1.2rem;
+}
+.field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #555;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(14,26,43,0.15);
+  padding: 11px 14px;
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(27,79,216,0.10);
+  background: #fff;
+}
+.field textarea { min-height: 80px; resize: vertical; }
+
+.toggle-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.tog-btn {
+  padding: 11px 14px;
+  border: 1.5px solid rgba(14,26,43,0.15);
+  border-radius: 8px;
+  background: var(--paper);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.18s;
+}
+.tog-btn.sel-bw {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+.tog-btn.sel-col {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+.warn-box {
+  display: none;
+  background: var(--red-light);
+  border-left: 3px solid var(--red);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--red);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.cost-display {
+  display: none;
+  background: var(--blue-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 8px;
+  margin-bottom: 1rem;
+}
+.cost-lbl { font-size: 12px; font-weight: 600; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.cost-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+}
+.cost-break { font-size: 12px; color: #4066B5; margin-top: 4px; }
+
+.submit-btn {
+  width: 100%;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.12s;
+}
+.submit-btn:hover { background: #1a2e4a; transform: translateY(-1px); }
+.submit-btn:active { transform: translateY(0); }
+.submit-btn:disabled { background: #aaa; cursor: not-allowed; transform: none; }
+
+.success-card {
+  display: none;
+  background: var(--green-light);
+  border: 1.5px solid #86EFAC;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: var(--green);
+  font-size: 14px;
+  margin-top: 14px;
+  line-height: 1.9;
+}
+.success-card strong { font-family: 'Syne', sans-serif; font-size: 16px; }
+
+/* UPI SECTION */
+.upi-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+.upi-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.qr-frame {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: #fff;
+}
+.upi-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+.upi-id-label { font-size: 13px; color: #888; margin-top: -6px; }
+.upi-apps {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.upi-pill {
+  background: var(--paper2);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+.notice-bar {
+  background: #FFF8E1;
+  border-left: 3px solid #F59E0B;
+  border-radius: 0 10px 10px 0;
+  padding: 11px 15px;
+  font-size: 13px;
+  color: #78350F;
+  line-height: 1.7;
+  width: 100%;
+}
+
+/* MAP SECTION */
+.map-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+.addr-block {
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+.addr-block strong {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.dir-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.18s;
+  margin-bottom: 10px;
+}
+.dir-btn.gmap {
+  background: var(--blue);
+  color: #fff;
+}
+.dir-btn.gmap:hover { background: var(--blue-dark); }
+.dir-btn.amap {
+  background: #fff;
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+}
+.dir-btn.amap:hover { background: var(--paper); }
+.village-note {
+  background: var(--amber-light);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--amber);
+  margin-top: 4px;
+}
+
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 13px;
+  line-height: 2.2;
+}
+footer a { color: var(--blue-mid); text-decoration: none; }
+footer strong { color: rgba(255,255,255,0.9); font-family: 'Syne', sans-serif; }
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="shop-eyebrow"><span class="dot"></span>Lanka Peta, Narayanapatnam &nbsp;·&nbsp; Srikakulam, AP</div>
+    <div class="shop-name">Sateesh<br>Zerox's</div>
+    <div class="shop-sub">Pre-order your prints &amp; photos — collect them ready when you arrive.</div>
+    <div class="addr-line">H.No: 3-80, Lanka Peta · Ranasthalam Mandal · 532407</div>
+    <div class="badges">
+      <span class="badge">✓ Lanka Peta</span>
+      <span class="badge">✓ Raava</span>
+      <span class="badge">📞 90009 38387</span>
+    </div>
+    <div class="header-ctas">
+      <a class="cta-call" href="tel:9000938387">📞 Call Now</a>
+      <a class="cta-wa" href="https://wa.me/919000938387" target="_blank">💬 WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<!-- HOW IT WORKS -->
+<div class="steps-bar">
+  <div class="steps-bar-inner">
+    <div class="step"><div class="step-num">1</div><div class="step-lbl">Fill order<br>form</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-lbl">Pay advance<br>via UPI</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-lbl">Send<br>screenshot</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-lbl">Come &amp;<br>collect!</div></div>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- PRICING -->
+  <div class="sec-label">Pricing</div>
+  <div class="pricing-row">
+    <div class="price-card bw">
+      <div class="pc-icon">⬛</div>
+      <div class="pc-name">B&amp;W Xerox</div>
+      <div class="pc-row"><span>1 copy</span><span class="pc-amt">₹3</span></div>
+      <div class="pc-row"><span>2 copies</span><span class="pc-amt">₹5</span></div>
+      <div class="pc-note">A4 paper</div>
+    </div>
+    <div class="price-card col">
+      <div class="pc-icon">🌈</div>
+      <div class="pc-name">Colour Print</div>
+      <div class="pc-row"><span>Per page</span><span class="pc-amt">₹10</span></div>
+      <div class="pc-note">A4 · any design</div>
+    </div>
+    <div class="price-card photo">
+      <div class="pc-icon">📷</div>
+      <div class="pc-name">Passport Photos</div>
+      <div class="pc-row"><span>4 photos</span><span class="pc-amt">₹50</span></div>
+      <div class="pc-row"><span>8 photos</span><span class="pc-amt">₹80</span></div>
+    </div>
+  </div>
+
+  <!-- ORDER FORM -->
+  <div class="form-card">
+    <div class="form-title">Place Your Order</div>
+
+    <div class="field">
+      <label>Full name</label>
+      <input type="text" id="f-name" placeholder="Your name"/>
+    </div>
+    <div class="field">
+      <label>Phone number</label>
+      <input type="tel" id="f-phone" placeholder="e.g. 98765 43210"/>
+    </div>
+    <div class="field">
+      <label>Your village</label>
+      <select id="f-village" onchange="checkVillage()">
+        <option value="">Select village</option>
+        <option value="ok">Lanka Peta</option>
+        <option value="ok">Raava</option>
+        <option value="no">Other village</option>
+      </select>
+      <div class="warn-box" id="village-warn">⚠️ Sorry — we currently serve only <strong>Lanka Peta</strong> and <strong>Raava</strong> villages.</div>
+    </div>
+    <div class="field">
+      <label>Type of service</label>
+      <select id="f-service" onchange="onServiceChange()">
+        <option value="">Select service</option>
+        <option value="xerox">Black &amp; White Xerox</option>
+        <option value="colour">Colour Print (A4)</option>
+        <option value="passport4">Passport Photos — 4 photos (₹50)</option>
+        <option value="passport8">Passport Photos — 8 photos (₹80)</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="field" id="colour-row" style="display:none;">
+      <label>Print colour</label>
+      <div class="toggle-row">
+        <button type="button" class="tog-btn" id="tog-bw" onclick="selectColour('bw')">⬛ Black &amp; White</button>
+        <button type="button" class="tog-btn" id="tog-col" onclick="selectColour('colour')">🌈 Colour</button>
+      </div>
+    </div>
+
+    <div class="field" id="qty-row" style="display:none;">
+      <label id="qty-label">Number of copies / pages</label>
+      <input type="number" id="f-qty" placeholder="Enter quantity" min="1" oninput="calcCost()"/>
+    </div>
+
+    <div class="cost-display" id="calc-box">
+      <div class="cost-lbl">Estimated total</div>
+      <div class="cost-num" id="cost-amount">₹0</div>
+      <div class="cost-break" id="cost-breakdown"></div>
+    </div>
+
+    <div class="field">
+      <label>Pickup time (when will you arrive?)</label>
+      <input type="time" id="f-time"/>
+    </div>
+    <div class="field">
+      <label>Special instructions</label>
+      <textarea id="f-notes" placeholder="e.g. Double sided, file name, specific pages, colour preferences…"></textarea>
+    </div>
+
+    <button class="submit-btn" id="sub-btn" onclick="submitOrder()">Submit Order &amp; Proceed to Pay →</button>
+    <div class="success-card" id="success-msg">
+      <strong>✓ Order noted!</strong><br>
+      WhatsApp is opening with your order details — please <strong>press Send</strong> to confirm your order.<br>
+      Then pay the advance via UPI below and send the payment screenshot too. Your prints will be ready when you arrive! 🎉
+    </div>
+  </div>
+
+  <!-- UPI PAYMENT -->
+  <div class="upi-card">
+    <div class="sec-label" style="margin-bottom:1.2rem;">Pay Advance via UPI</div>
+    <div class="upi-inner">
+      <div class="qr-frame">
+        <svg width="156" height="156" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+          <rect width="160" height="160" fill="#fff"/>
+          <rect x="10" y="10" width="55" height="55" rx="4" fill="#0E1A2B"/>
+          <rect x="17" y="17" width="41" height="41" rx="2" fill="#fff"/>
+          <rect x="24" y="24" width="27" height="27" rx="1" fill="#0E1A2B"/>
+          <rect x="95" y="10" width="55" height="55" rx="4" fill="#0E1A2B"/>
+          <rect x="102" y="17" width="41" height="41" rx="2" fill="#fff"/>
+          <rect x="109" y="24" width="27" height="27" rx="1" fill="#0E1A2B"/>
+          <rect x="10" y="95" width="55" height="55" rx="4" fill="#0E1A2B"/>
+          <rect x="17" y="102" width="41" height="41" rx="2" fill="#fff"/>
+          <rect x="24" y="109" width="27" height="27" rx="1" fill="#0E1A2B"/>
+          <rect x="75" y="10" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="75" y="26" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="75" y="42" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="10" y="75" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="26" y="75" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="42" y="75" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="58" y="75" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="95" y="75" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="111" y="75" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="127" y="75" width="23" height="12" fill="#0E1A2B"/>
+          <rect x="95" y="91" width="22" height="12" fill="#0E1A2B"/>
+          <rect x="121" y="91" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="95" y="107" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="111" y="107" width="22" height="12" fill="#0E1A2B"/>
+          <rect x="95" y="123" width="32" height="12" fill="#0E1A2B"/>
+          <rect x="131" y="123" width="19" height="12" fill="#0E1A2B"/>
+          <rect x="95" y="139" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="111" y="139" width="12" height="12" fill="#0E1A2B"/>
+          <rect x="75" y="75" width="12" height="12" fill="#fff" stroke="#0E1A2B" stroke-width="2.5"/>
+          <text x="80" y="157" text-anchor="middle" font-size="9" fill="#0E1A2B" font-family="'DM Sans',Arial,sans-serif" font-weight="700">9000938387@upi</text>
+        </svg>
+      </div>
+      <div class="upi-num">9000938387</div>
+      <div class="upi-id-label">UPI ID: 9000938387@upi</div>
+      <div class="upi-apps">
+        <span class="upi-pill">GPay</span>
+        <span class="upi-pill">PhonePe</span>
+        <span class="upi-pill">Paytm</span>
+        <span class="upi-pill">BHIM</span>
+      </div>
+      <div class="notice-bar">
+        ⚠️ After paying, send the <strong>payment screenshot</strong> to <strong>90009 38387</strong> on WhatsApp. Orders are processed only after confirmation.
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCATION -->
+  <div class="map-card">
+    <div class="sec-label" style="margin-bottom:1.2rem;">Find Our Shop</div>
+    <div class="addr-block">
+      <strong>Sateesh Zerox's</strong>
+      H.No: 3-80, Lanka Peta (Narayanapatnam)<br>
+      Ranasthalam Mandal, Srikakulam District<br>
+      Andhra Pradesh — 532407
+    </div>
+    <a class="dir-btn gmap" href="https://www.google.com/maps/dir/?api=1&destination=18.17077027283221,83.72204520113037" target="_blank">
+      🗺️ Get Directions on Google Maps
+    </a>
+    <a class="dir-btn amap" href="https://maps.apple.com/?daddr=18.17077027283221,83.72204520113037" target="_blank">
+      🍎 Get Directions on Apple Maps
+    </a>
+    <div class="village-note">ℹ️ Orders accepted only from <strong>Lanka Peta</strong> and <strong>Raava</strong> villages.</div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Sateesh Zerox's</strong><br>
+  <a href="tel:9000938387">90009 38387</a> &nbsp;·&nbsp; Lanka Peta, Ranasthalam, Srikakulam, AP<br>
+  Fast &amp; Reliable Printing Service
+</footer>
+
+<script>
+let selService = '', selColour = '';
+
+function onServiceChange() {
+  selService = document.getElementById('f-service').value;
+  selColour = '';
+  document.getElementById('tog-bw').className = 'tog-btn';
+  document.getElementById('tog-col').className = 'tog-btn';
+
+  const showToggle = selService === 'xerox' || selService === 'colour';
+  const showQty = selService !== '' && selService !== 'other';
+  const isPassport = selService === 'passport4' || selService === 'passport8';
+
+  document.getElementById('colour-row').style.display = showToggle ? 'block' : 'none';
+  document.getElementById('qty-row').style.display = showQty ? 'block' : 'none';
+  document.getElementById('calc-box').style.display = 'none';
+  document.getElementById('f-qty').value = '';
+
+  document.getElementById('qty-label').textContent = isPassport ? 'Number of sets' : 'Number of copies / pages';
+
+  if (selService === 'colour') {
+    selColour = 'colour';
+    document.getElementById('tog-col').className = 'tog-btn sel-col';
+  } else if (isPassport) {
+    selColour = 'photo';
+  }
+  calcCost();
+}
+
+function selectColour(c) {
+  selColour = c;
+  document.getElementById('tog-bw').className = 'tog-btn' + (c === 'bw' ? ' sel-bw' : '');
+  document.getElementById('tog-col').className = 'tog-btn' + (c === 'colour' ? ' sel-col' : '');
+  calcCost();
+}
+
+function calcCost() {
+  const qty = parseInt(document.getElementById('f-qty').value) || 0;
+  const box = document.getElementById('calc-box');
+  const amtEl = document.getElementById('cost-amount');
+  const breakEl = document.getElementById('cost-breakdown');
+
+  if (qty <= 0 || selService === '' || selService === 'other') { box.style.display = 'none'; return; }
+  if (selService === 'xerox' && selColour === '') { box.style.display = 'none'; return; }
+
+  let total = 0, breakdown = '';
+
+  if (selService === 'xerox' && selColour === 'bw') {
+    total = qty * 3;
+    breakdown = qty + ' cop' + (qty === 1 ? 'y' : 'ies') + ' × ₹3';
+  } else if ((selService === 'xerox' && selColour === 'colour') || selService === 'colour') {
+    total = qty * 10;
+    breakdown = qty + ' page(s) × ₹10';
+  } else if (selService === 'passport4') {
+    total = qty * 50;
+    breakdown = qty + ' set(s) × ₹50 (4 photos each)';
+  } else if (selService === 'passport8') {
+    total = qty * 80;
+    breakdown = qty + ' set(s) × ₹80 (8 photos each)';
+  }
+
+  amtEl.textContent = '₹' + total;
+  breakEl.textContent = breakdown;
+  box.style.display = 'block';
+}
+
+function checkVillage() {
+  const v = document.getElementById('f-village').value;
+  document.getElementById('village-warn').style.display = v === 'no' ? 'block' : 'none';
+}
+
+function submitOrder() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const service = document.getElementById('f-service').value;
+  const villageEl = document.getElementById('f-village');
+  const village = villageEl.value;
+  const villageName = villageEl.options[villageEl.selectedIndex].text;
+  const qty = parseInt(document.getElementById('f-qty').value) || 0;
+  const time = document.getElementById('f-time').value;
+  const notes = document.getElementById('f-notes').value.trim();
+
+  if (!name || !phone || !service || !village) {
+    alert('Please fill in your name, phone number, village, and service type.');
+    return;
+  }
+  if (village === 'no') {
+    alert('Sorry — we only accept orders from Lanka Peta and Raava villages.');
+    return;
+  }
+  if (selService === 'xerox' && selColour === '') {
+    alert('Please select Black & White or Colour for Xerox.');
+    return;
+  }
+
+  let serviceDesc = '';
+  let totalCost = 0;
+  if (service === 'xerox' && selColour === 'bw') {
+    const pairs = Math.floor(qty / 2), rem = qty % 2;
+    totalCost = pairs * 5 + rem * 3;
+    serviceDesc = `⬛ Black & White Xerox\n   Copies: ${qty}\n   Cost: ₹${totalCost}`;
+  } else if ((service === 'xerox' && selColour === 'colour') || service === 'colour') {
+    totalCost = qty * 10;
+    serviceDesc = `🌈 Colour Print\n   Pages: ${qty}\n   Cost: ₹${totalCost}`;
+  } else if (service === 'passport4') {
+    totalCost = qty * 50;
+    serviceDesc = `📷 Passport Size Photos (4 photos/set)\n   Sets: ${qty}\n   Cost: ₹${totalCost}`;
+  } else if (service === 'passport8') {
+    totalCost = qty * 80;
+    serviceDesc = `📷 Passport Size Photos (8 photos/set)\n   Sets: ${qty}\n   Cost: ₹${totalCost}`;
+  } else {
+    serviceDesc = `📋 Other / Custom Order`;
+  }
+
+  const pickupLine = time ? `\n🕐 Pickup Time: ${time}` : '';
+  const notesLine = notes ? `\n📝 Instructions: ${notes}` : '';
+
+  const msg = `🖨️ *NEW ORDER — Sateesh Zerox's*\n━━━━━━━━━━━━━━━━━━\n👤 *Customer:* ${name}\n📞 *Phone:* ${phone}\n🏘️ *Village:* ${villageName}\n━━━━━━━━━━━━━━━━━━\n🛒 *Order Details:*\n${serviceDesc}${pickupLine}${notesLine}\n━━━━━━━━━━━━━━━━━━\n💰 *Total Amount: ₹${totalCost}*\n✅ Payment screenshot will be sent separately.\n━━━━━━━━━━━━━━━━━━\n_Please confirm once ready for pickup._`;
+
+  document.getElementById('success-msg').style.display = 'block';
+  document.getElementById('sub-btn').disabled = true;
+  document.getElementById('success-msg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  setTimeout(() => {
+    window.open('https://wa.me/919000938387?text=' + encodeURIComponent(msg), '_blank');
+  }, 800);
+}
+</script>
+</body>
+</html>
